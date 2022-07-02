@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+// MultipleFilesUpload Component : Uploads Multiple files to IPFS and returns the URL
+import React, { useState } from 'react'
+import { MultipleFilesUpload } from 'react-ipfs-uploader'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [multipleFilesUrl, setMultipleFilesUrl] = useState('')
+
+    return (
+        <div>
+            <MultipleFilesUpload setUrl={setMultipleFilesUrl} />
+            MultipleFilesUrl : <a
+                href={multipleFilesUrl}
+                target='_blank'
+                rel='noopener noreferrer'
+            >
+                {multipleFilesUrl}
+            </a>
+        </div>
+    )
 }
 
-export default App;
+export default App
